@@ -232,7 +232,7 @@ hr {
 }
 
 a {
-
+    text-decoration: none;
     &,
     &:visited {
         transition: all var(--global-transitionTiming-alpha);
@@ -537,8 +537,11 @@ input::placeholder {
 }
 
 .c-card__footer {
+    @media (prefers-color-scheme: dark) {
+        --footer-borderColor: var(--global-color-neutral-950);
+    }
     text-align: center;
-    border-top: var(--global-borderWidth) solid var(--global-color-neutral-100);
+    border-top: var(--global-borderWidth) solid var(--footer-borderColor, var(--global-color-neutral-100));
 }
 
 .c-card__title {
@@ -576,7 +579,9 @@ input::placeholder {
 .c-form-field--option {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    &.c-option-list__item {
+        margin-bottom: 0.5rem;
+    }
 }
 
 /*
@@ -625,11 +630,14 @@ input::placeholder {
 */
 
 .c-label {
+    @media (prefers-color-scheme: dark) {
+        --label-color: var(--global-color-neutral-300);
+    }
     margin-bottom: 0;
     font-size: 0.875rem;
     padding-bottom: var(--global-whitespace-xs);
     line-height: calc(var(--global-baseline) * 2);
-    color: var(--global-color-neutral-800);
+    color: var(--label-color, var(--global-color-neutral-800));
 }
 
 .c-label--option {
@@ -676,6 +684,10 @@ input::placeholder {
 */
 
 .c-option--hidden+.c-custom-option {
+    @media (prefers-color-scheme: dark) {
+        --option-backgroundColor: var(--global-color-neutral-950);
+        --option-hoverBorderColor: var(--global-color-primary-700);
+    }
     display: flex;
     gap: 0.5rem;
 
@@ -687,6 +699,7 @@ input::placeholder {
         justify-content: center;
         align-items: center;
         transition: border var(--global-transition-2-ease);
+        background-color: var(--option-backgroundColor);
 
         & .c-custom-option__symbol {
             opacity: 0;
@@ -704,7 +717,7 @@ input::placeholder {
 
     &:hover {
         & .c-custom-option__fake-input {
-            border-color: var(--global-input-hover-borderColor);
+            border-color: var(--option-hoverBorderColor, var(--global-input-hover-borderColor));
         }
     }
 }
@@ -744,6 +757,9 @@ input::placeholder {
 */
 
 .c-option--hidden+.c-custom-toggle {
+    @media (prefers-color-scheme: dark) {
+        --toggle-backgroundColor: var(--global-color-neutral-950);
+    }
     display: flex;
     align-items: center;
     gap: .5rem;
@@ -755,7 +771,7 @@ input::placeholder {
         height: 1.5rem;
         border-radius: 1.5rem;
         border: 1px solid var(--global-input-borderColor);
-        background-color: var(--global-input-toggle-background);
+        background-color: var(--toggle-backgroundColor, var(--global-input-toggle-background));
         transition: background var(--global-transition-2-ease);
 
         &::after {
@@ -824,15 +840,18 @@ input::placeholder {
 */
 
 .c-password-toggle-container {
+    @media (prefers-color-scheme: dark) {
+        --passwordToggle-fill: var(--global-color-neutral-700);
+    }
     position: relative;
     & .c-password-toggle {
 
         & .c-password-toggle__checkbox+.c-password-toggle__label {
             & .c-password-toggle__symbol {
-                fill: var(--global-color-primary-500);
+                fill: var(--passwordToggle-fill, var(--global-color-neutral-300));
                 max-width: 1.5rem;
                 position: absolute;
-                top: 1rem;
+                top: .75rem;
                 right: 1rem;
             }
             & .c-password-toggle__symbol--show {
