@@ -84,10 +84,9 @@
     /*  = 48px */
     --global-whitespace-xxl: calc(var(--global-whitespace) * 3);
     /*  = 72px */
-}
 
-@media (prefers-color-scheme: dark) {
-    :root {
+    /* DARK MODE */
+    @media (prefers-color-scheme: dark) {
         --global-input-color: white;
         --global-input-background: var(--global-color-neutral-950);
         --global-input-borderColor: var(--global-color-neutral-900);
