@@ -53,12 +53,17 @@
     --global-input-toggle-background: var(--global-color-neutral-050);
     --global-input-toggle-ballColor: white;
     --global-input-toggle-ballShadow: 0 1px 3px var(--global-color-shadow);
+    
+    --global-html-backgroundColor: var(--global-color-neutral-050);
+    --global-html-color: var(--global-color-neutral-950);
 
-    /* border stuff */
+    --global-card-color: white;
+
+    /* Border stuff */
     --global-borderRadius: 3px;
     --global-borderWidth: 1px;
 
-    /* transitions */
+    /* Transitions */
     --global-transitionTiming-alpha: 0.1s ease-out;
     --global-transition-2-ease: .2s ease;
 
@@ -83,45 +88,15 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --global-input-color: var(--global-color-neutral-050);
+        --global-input-color: white;
         --global-input-background: var(--global-color-neutral-950);
         --global-input-borderColor: var(--global-color-neutral-900);
+
+        --global-html-backgroundColor: var(--global-color-neutral-950);
+        --global-html-color: white;
+
+        --global-card-color: var(--global-color-neutral-900);
     }
-}
-
-@keyframes easeOutElastic {
-	0% {
-		transform: translateX(0%);
-	}
-
-	16% {
-		transform: translateX(-132.27%);
-	}
-
-	28% {
-		transform: translateX(-86.88%);
-	}
-
-	44% {
-		transform: translateX(-104.63%);
-	}
-
-	59% {
-		transform: translateX(-98.36%);
-	}
-
-	73% {
-		transform: translateX(-100.58%);
-	}
-
-	88% {
-		transform: translateX(-99.8%);
-	}
-
-	100% {
-		transform: translateX(-100%);
-	}
-
 }
 
 /*---------------------------------------/*
@@ -155,8 +130,8 @@ img {
 html {
     line-height: 1.5;
     font-family: 'Inter Web', Helvetica, arial, sans-serif;
-    color: var(--global-color-neutral-950);
-    background-color: var(--global-color-neutral-050);
+    color: var(--global-html-color);
+    background-color: var(--global-html-backgroundColor);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -544,7 +519,7 @@ input::placeholder {
 */
 
 .c-card {
-    background-color: White;
+    background-color: var(--global-card-color);
     margin-bottom: var(--global-whitespace);
     border-radius: var(--global-borderRadius);
     box-shadow: 0 0 0 var(--global-borderWidth) rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.075);
